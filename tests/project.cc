@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/log.h"
+#include "log.h"
 
 int main(int argc, char *agrv[]) {
   std::cout << "Hello" << std::endl;

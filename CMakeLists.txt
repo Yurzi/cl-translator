@@ -16,8 +16,9 @@ project(cl-translator
     DESCRIPTION "a commandline application for translator"
     )
 
-include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/src)
 
+option(ENABLE_TEST "whether or not enable test" OFF)
 set(CMAKE_BUILD_TYPE "Debug")
 
 # [compiler settings]
@@ -45,8 +46,20 @@ target_link_libraries(${PROJECT_NAME} PRIVATE app)
 force_refdefine_file_macro_for_sources(${PROJECT_NAME})
 
 # [test targets]
-add_unit_test(project app)
-force_refdefine_file_macro_for_sources(test-project)
+# [Targets/Test]
+if (${ENABLE_TEST})
+  message(STATUS "Tests is enable")
+  enable_testing()
 
-add_unit_test(sion app)
-force_refdefine_file_macro_for_sources(test-sion)
+  # 添加测试 add_unit_test(test_name test_libraries)
+  # 注意需要在tests目录下创建于test_name同名的源文件 如 test_name.cc
+
+  add_unit_test(project app)
+  force_refdefine_file_macro_for_sources(test-project)
+
+  add_unit_test(sion app)
+  force_refdefine_file_macro_for_sources(test-sion)
+
+else ()
+  message (STATUS "Tests is off")
+endif ()
