@@ -1,3 +1,9 @@
+/**
+ * @auther: zanllp
+ * @github repository: https://github.com/zanllp/sion
+ * @description: A lightweight cross-platform C++ HTTP client. supports asynchronous, https.
+ * @license: MIT license
+ * **/
 #pragma once
 #include <array>
 #include <atomic>
