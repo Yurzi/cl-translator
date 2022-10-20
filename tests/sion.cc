@@ -1,5 +1,5 @@
-#include "src/sion.h"
 #include "src/log.h"
+#include "src/sion.h"
 
 int main(int argc, char *argv[]) {
   sion::String test("flagsaaaaflags");
